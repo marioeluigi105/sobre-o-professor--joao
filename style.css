@@ -1,92 +1,94 @@
-
 /* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(120deg, #000, #1a001a, #330000);
-    color: #fff;
 }
 
+/* Cores preferidas do João */
+:root {
+    --vermelho: #ff0000;
+    --branco: #ffffff;
+    --preto: #000000;
+    --roxo: #800080;
+}
+
+/* Corpo do site */
+body {
+    background-color: var(--preto);
+    color: var(--branco);
+    line-height: 1.6;
+}
+
+/* Cabeçalho e navegação */
 header {
-    background-color: #330000;
+    background: linear-gradient(90deg, var(--vermelho), var(--roxo));
     padding: 20px;
     text-align: center;
 }
 
 header h1 {
-    color: #ff0000;
-    font-size: 3em;
+    font-size: 2.5em;
+    color: var(--branco);
     margin-bottom: 10px;
-    text-shadow: 2px 2px #800080;
 }
 
 nav a {
-    color: #fff;
+    color: var(--branco);
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
-    padding: 8px 15px;
-    border-radius: 5px;
     transition: 0.3s;
 }
 
 nav a:hover {
-    background-color: #ff0000;
-    color: #fff;
+    color: var(--vermelho);
 }
 
+/* Conteúdo principal */
 main {
-    padding: 40px;
+    padding: 30px;
 }
 
-.sobre-joao p {
-    margin-bottom: 15px;
-    line-height: 1.5;
-    font-size: 1.2em;
-}
-
-/* Página de imagens de carros/motos/animes */
-.imagens-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.imagens-container .item {
-    width: 200px;
-    text-align: center;
-}
-
-.imagens-container img {
-    width: 100%;
-    border: 3px solid #800080;
-    border-radius: 10px;
-}
-
-.imagens-container p {
-    margin-top: 5px;
-    font-size: 0.9em;
-}
-
-/* Botões gerais */
+/* Botões */
 button {
-    background-color: #ff0000;
-    color: #fff;
+    background-color: var(--roxo);
+    color: var(--branco);
     border: none;
     padding: 10px 20px;
-    margin: 10px;
-    font-size: 1em;
     cursor: pointer;
-    border-radius: 8px;
+    font-weight: bold;
     transition: 0.3s;
 }
 
 button:hover {
-    background-color: #800080;
+    background-color: var(--vermelho);
+}
+
+/* Imagens em grid */
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.grid img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: var(--preto);
+    color: var(--branco);
 }
