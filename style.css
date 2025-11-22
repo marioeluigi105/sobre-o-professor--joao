@@ -1,9 +1,14 @@
+/* ===================== Global ===================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #000; /* Preto */
     color: #fff;
-    margin: 0;
-    padding: 0;
 }
 
 header {
@@ -12,31 +17,50 @@ header {
     text-align: center;
 }
 
+header h1 {
+    font-size: 2em;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+}
+
 nav a {
     color: #fff;
     margin: 0 10px;
     text-decoration: none;
     font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 6px;
     transition: 0.3s;
 }
 
 nav a:hover {
-    color: #ffcc00; /* Cor de destaque */
+    color: #ffcc00;
+    background-color: rgba(255,255,255,0.1);
 }
 
+/* ===================== Main Content ===================== */
 main {
     padding: 20px;
 }
 
+section.sobre p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    font-size: 1.1em;
+}
+
+/* ===================== Galeria de Imagens ===================== */
 .galeria {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }
 
 .galeria .item {
     flex: 1 1 calc(33% - 20px);
     text-align: center;
+    min-width: 180px;
 }
 
 .galeria img {
@@ -44,15 +68,112 @@ main {
     max-width: 250px;
     border: 2px solid #fff;
     border-radius: 10px;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .galeria img:hover {
     transform: scale(1.1);
+    box-shadow: 0 0 15px #ff0000;
 }
 
+.galeria p {
+    margin-top: 5px;
+    font-size: 0.95em;
+}
+
+/* ===================== Botões Gerais ===================== */
+button {
+    padding: 10px 20px;
+    background-color: #800080;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ff0000;
+}
+
+/* ===================== Quiz ===================== */
+.quiz-btn {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #800080;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.quiz-btn:hover {
+    background-color: #ff0000;
+}
+
+/* ===================== Jogo (Canvas) ===================== */
+#gameCanvas {
+    display: block;
+    margin: 20px auto;
+    border: 2px solid #fff;
+    background-color: #111;
+}
+
+/* ===================== Mensagens ===================== */
+#msgInput {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #fff;
+    margin-bottom: 10px;
+    background-color: #222;
+    color: #fff;
+}
+
+#sendBtn {
+    padding: 10px 20px;
+    background-color: #800080;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#sendBtn:hover {
+    background-color: #ff0000;
+}
+
+#messagesContainer .msg {
+    background-color: #111;
+    border: 1px solid #fff;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 6px;
+}
+
+/* ===================== Footer ===================== */
 footer {
     text-align: center;
     padding: 10px;
     background-color: #222;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+/* ===================== Responsividade ===================== */
+@media (max-width: 900px) {
+    .galeria .item {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .galeria .item {
+        flex: 1 1 100%;
+    }
 }
