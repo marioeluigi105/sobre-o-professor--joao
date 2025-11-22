@@ -1,37 +1,37 @@
-/* Reset básico */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Verdana', sans-serif;
 }
 
-/* Cores preferidas do João */
+/* Cores do João */
 :root {
+    --preto: #0d0d0d;
     --vermelho: #ff0000;
     --branco: #ffffff;
-    --preto: #000000;
     --roxo: #800080;
 }
 
-/* Corpo do site */
+/* Corpo */
 body {
     background-color: var(--preto);
     color: var(--branco);
-    line-height: 1.6;
 }
 
-/* Cabeçalho e navegação */
+/* Cabeçalho */
 header {
     background: linear-gradient(90deg, var(--vermelho), var(--roxo));
-    padding: 20px;
+    padding: 20px 10px;
     text-align: center;
 }
 
 header h1 {
     font-size: 2.5em;
+    font-family: 'Impact', sans-serif;
     color: var(--branco);
-    margin-bottom: 10px;
+    text-shadow: 2px 2px var(--preto);
 }
 
 nav a {
@@ -39,6 +39,7 @@ nav a {
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
+    font-size: 1.1em;
     transition: 0.3s;
 }
 
@@ -46,27 +47,12 @@ nav a:hover {
     color: var(--vermelho);
 }
 
-/* Conteúdo principal */
+/* Main */
 main {
     padding: 30px;
 }
 
-/* Botões */
-button {
-    background-color: var(--roxo);
-    color: var(--branco);
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-button:hover {
-    background-color: var(--vermelho);
-}
-
-/* Imagens em grid */
+/* Grid de imagens */
 .grid {
     display: grid;
     gap: 20px;
@@ -83,6 +69,60 @@ button:hover {
 .grid img {
     width: 100%;
     border-radius: 10px;
+    transition: transform 0.3s;
+    border: 3px solid var(--roxo);
+}
+
+.grid img:hover {
+    transform: scale(1.1);
+    border-color: var(--vermelho);
+}
+
+/* Cards */
+.grid div {
+    background-color: #111;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Botões */
+button {
+    background: var(--roxo);
+    color: var(--branco);
+    border: 2px solid var(--vermelho);
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 10px;
+    font-size: 1.1em;
+}
+
+button:hover {
+    background: var(--vermelho);
+    border-color: var(--branco);
+    transform: scale(1.05);
+}
+
+/* Quiz */
+.quiz-container {
+    background-color: #111;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.quiz-container h3 {
+    margin-bottom: 20px;
+    color: var(--roxo);
+    text-shadow: 1px 1px var(--preto);
+}
+
+.quiz-container button {
+    margin-top: 15px;
 }
 
 /* Footer */
@@ -91,4 +131,5 @@ footer {
     padding: 15px;
     background-color: var(--preto);
     color: var(--branco);
+    margin-top: 50px;
 }
