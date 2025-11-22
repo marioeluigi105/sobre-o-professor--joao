@@ -1,29 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Quiz sobre João</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<title>Quiz sobre João</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <header>
-    <h1>Quiz Interativo</h1>
-    <nav>
-        <a href="index.html">Sobre</a>
-        <a href="motos-carros.html">Carros & Motos</a>
-        <a href="animes.html">Animes</a>
-        <a href="quiz.html">Quiz</a>
-        <a href="hobbies.html">Hobbies</a>
-        <a href="mensagens.html">Mensagens</a>
-    </nav>
+<h1>Quiz sobre João</h1>
+<nav>
+    <a href="index.html">Sobre</a>
+    <a href="motos-carros.html">Carros & Motos</a>
+    <a href="animes.html">Animes</a>
+    <a href="quiz.html">Quiz</a>
+    <a href="hobbies.html">Hobbies</a>
+    <a href="mensagens.html">Mensagens</a>
+</nav>
 </header>
 
 <main>
-    <div class="quiz-container" id="quiz-container">
-        <!-- Pergunta e alternativas serão inseridas aqui pelo JS -->
-    </div>
+<div class="quiz-container">
+    <h3 id="pergunta"></h3>
+    <div id="alternativas"></div>
+    <button id="proxima">Próxima</button>
+    <h3 id="resultado" style="display:none;"></h3>
+</div>
 </main>
 
-<script src="js/quiz.js"></script>
-</body>
-</html>
+<footer>
+© 2025 João | Todos os direitos reservados
+</footer>
+
+<script>
+const quiz = [
+    {pergunta:"Qual a moto favorita do João?", alternativas:["KTM 390","Honda CB500","Yamaha R1","Suzuki GSX"], correta:0},
+    {pergunta:"Qual carro é o maior sonho dele?", alternativas:["Civic","Honda NSX","Lamborghini","Chevette"], correta:1},
+    {pergunta:"Qual personagem de anime ele mais gosta?", alternativas:["Gon","Edward","Kaneki","Meruem"], correta:1},
+    {pergunta:"Quantas tatuagens João tem?", alternativas:["6","7","8","9"], correta:2},
+    {pergunta:"Qual música ele não escuta?", alternativas:["Rap","Sertanejo","Funk","Não escuta nenhuma"], correta:3},
+    {pergunta:"Qual moto é aventureira?", alternativas:["KTM 390","Africa Twin","Super Duke R","NSX"], correta:1},
+    {pergunta:"Qual carro ele gosta mais de modificar?", alternativas:["Chevette","Civic","RX7","Apolo/Verona"], correta:1},
+    {pergunta:"Qual personagem representa superação?", alternativas:["Killua","Kaneki","Meruem","Bill Cipher"], correta:1},
+    {pergunta:"Qual moto ele considera potência máxima?", alternativas:["KTM 390","Africa Twin","KTM 1390 Super Duke R","Honda NSX"], correta:2},
+    {pergunta:"Qual é a cor que ele mais gosta?", alternativas:["Preto","Vermelho","Branco","Roxo"], correta:0},
+];
+
+let index = 0;
+let acertos = 0;
+
+const perguntaEl = document.getElementById("pergunta");
+const alternativasEl = document.getElementById("alternativas");
+const proximaBtn = document.getElementById("proxima");
+const resultadoEl = document.getElementById("resultado");
+
+function mostrarPergunta() {
+    if(index >= quiz.length){
+        perguntaEl.style.display="none";
+        alternativasEl.style.display="none";
+        proximaBtn.style.display="none";
+        resultadoEl.style.display="block";
+        resultadoEl.textContent = `Você acertou ${acertos} de ${quiz.length} perguntas!`;
+        return;
+    }
+    const q = quiz[index];
+    perguntaEl.textContent = q.pergunta;
+    alternativasEl.innerHTML = "";
+    q.alternativas.forEach((alt,i)=>{
+        const btn = document.createElement("button");
+        btn.textContent = alt;
+        btn.addEventListener("click", ()=>{
+            if(i===q.correta) acertos++;
+            index++;
+            mostrarPergunta();
+        });
+        alternativasEl.appendChild(btn);
+    });
+}
+
+mostrarPergunta();
+</script>
