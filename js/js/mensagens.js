@@ -1,29 +1,32 @@
-const sendBtn = document.getElementById("sendBtn");
-const msgInput = document.getElementById("msgInput");
-const messagesContainer = document.getElementById("messagesContainer");
+const enviarBtn = document.getElementById('enviar');
+const mural = document.getElementById('mural');
+const mensagemInput = document.getElementById('mensagem');
 
-let messages = JSON.parse(localStorage.getItem("joaoMessages")) || [];
-
-function renderMessages() {
-    messagesContainer.innerHTML = "";
-    messages.forEach(msg => {
-        const div = document.createElement("div");
-        div.classList.add("msg");
+function atualizarMural() {
+    const mensagens = JSON.parse(localStorage.getItem('mensagens') || "[]");
+    mural.innerHTML = '';
+    mensagens.forEach(msg => {
+        const div = document.createElement('div');
         div.textContent = msg;
-        messagesContainer.appendChild(div);
+        div.style.background = '#111';
+        div.style.padding = '10px';
+        div.style.margin = '5px 0';
+        div.style.borderRadius = '5px';
+        mural.appendChild(div);
     });
 }
 
-sendBtn.addEventListener("click", () => {
-    let msg = msgInput.value.trim();
-    if(msg && !msg.toLowerCase().includes("palavrão")){
-        messages.push(msg);
-        localStorage.setItem("joaoMessages", JSON.stringify(messages));
-        msgInput.value = "";
-        renderMessages();
+enviarBtn.addEventListener('click', () => {
+    const texto = mensagemInput.value.trim();
+    if(texto && !/[\[\]<>]/.test(texto)) { // simples filtro de caracteres especiais
+        const mensagens = JSON.parse(localStorage.getItem('mensagens') || "[]");
+        mensagens.push(texto);
+        localStorage.setItem('mensagens', JSON.stringify(mensagens));
+        mensagemInput.value = '';
+        atualizarMural();
     } else {
-        alert("Mensagem inválida ou contém palavrão!");
+        alert("Digite uma mensagem válida sem palavrões.");
     }
 });
 
-renderMessages();
+atualizarMural();
