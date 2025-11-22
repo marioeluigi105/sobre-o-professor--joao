@@ -11,30 +11,27 @@ const quizData = [
     { pergunta: "Qual personagem é do anime Tokyo Ghoul?", respostas: ["Kaneki", "Gon", "Kaito", "Meruem"], correta: "Kaneki" }
 ];
 
+let currentQuestion = 0;
+let pontos = 0;
+
 const container = document.getElementById('quiz-container');
-const submitBtn = document.getElementById('submit-btn');
-const resultado = document.getElementById('resultado');
 
-quizData.forEach((q, index) => {
-    const div = document.createElement('div');
-    div.classList.add('quiz-question');
-    div.innerHTML = `<h3>${index+1}. ${q.pergunta}</h3>`;
-    q.respostas.forEach(r => {
-        const id = `q${index}-${r}`;
-        div.innerHTML += `
-            <label>
-                <input type="radio" name="q${index}" value="${r}"> ${r}
-            </label><br>
-        `;
-    });
-    container.appendChild(div);
-});
+function mostrarPergunta() {
+    const q = quizData[currentQuestion];
+    container.innerHTML = `
+        <h3>${currentQuestion + 1}. ${q.pergunta}</h3>
+        ${q.respostas.map(r => `<button onclick="responder('${r}')">${r}</button>`).join('<br><br>')}
+    `;
+}
 
-submitBtn.addEventListener('click', () => {
-    let pontos = 0;
-    quizData.forEach((q, index) => {
-        const selected = document.querySelector(`input[name=q${index}]:checked`);
-        if(selected && selected.value === q.correta) pontos++;
-    });
-    resultado.textContent = `Você acertou ${pontos} de ${quizData.length} perguntas!`;
-});
+function responder(resposta) {
+    if (resposta === quizData[currentQuestion].correta) pontos++;
+    currentQuestion++;
+    if(currentQuestion < quizData.length) {
+        mostrarPergunta();
+    } else {
+        container.innerHTML = `<h3>Você acertou ${pontos} de ${quizData.length} perguntas!</h3>`;
+    }
+}
+
+mostrarPergunta();
