@@ -1,179 +1,92 @@
-/* ===================== Global ===================== */
+
+/* Reset básico */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #000; /* Preto */
+    background: linear-gradient(120deg, #000, #1a001a, #330000);
     color: #fff;
 }
 
 header {
-    background: linear-gradient(90deg, #ff0000, #800080);
+    background-color: #330000;
     padding: 20px;
     text-align: center;
 }
 
 header h1 {
-    font-size: 2em;
-    color: #fff;
-    text-shadow: 2px 2px #000;
+    color: #ff0000;
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px #800080;
 }
 
 nav a {
     color: #fff;
-    margin: 0 10px;
     text-decoration: none;
+    margin: 0 15px;
     font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 6px;
+    padding: 8px 15px;
+    border-radius: 5px;
     transition: 0.3s;
 }
 
 nav a:hover {
-    color: #ffcc00;
-    background-color: rgba(255,255,255,0.1);
+    background-color: #ff0000;
+    color: #fff;
 }
 
-/* ===================== Main Content ===================== */
 main {
-    padding: 20px;
+    padding: 40px;
 }
 
-section.sobre p {
+.sobre-joao p {
     margin-bottom: 15px;
     line-height: 1.5;
-    font-size: 1.1em;
+    font-size: 1.2em;
 }
 
-/* ===================== Galeria de Imagens ===================== */
-.galeria {
+/* Página de imagens de carros/motos/animes */
+.imagens-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
     justify-content: center;
+    gap: 20px;
 }
 
-.galeria .item {
-    flex: 1 1 calc(33% - 20px);
+.imagens-container .item {
+    width: 200px;
     text-align: center;
-    min-width: 180px;
 }
 
-.galeria img {
+.imagens-container img {
     width: 100%;
-    max-width: 250px;
-    border: 2px solid #fff;
+    border: 3px solid #800080;
     border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.galeria img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #ff0000;
-}
-
-.galeria p {
+.imagens-container p {
     margin-top: 5px;
-    font-size: 0.95em;
+    font-size: 0.9em;
 }
 
-/* ===================== Botões Gerais ===================== */
+/* Botões gerais */
 button {
-    padding: 10px 20px;
-    background-color: #800080;
+    background-color: #ff0000;
     color: #fff;
     border: none;
-    border-radius: 8px;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1em;
     cursor: pointer;
-    font-weight: bold;
+    border-radius: 8px;
     transition: 0.3s;
 }
 
 button:hover {
-    background-color: #ff0000;
-}
-
-/* ===================== Quiz ===================== */
-.quiz-btn {
-    display: block;
-    margin: 10px 0;
-    padding: 10px 20px;
     background-color: #800080;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.quiz-btn:hover {
-    background-color: #ff0000;
-}
-
-/* ===================== Jogo (Canvas) ===================== */
-#gameCanvas {
-    display: block;
-    margin: 20px auto;
-    border: 2px solid #fff;
-    background-color: #111;
-}
-
-/* ===================== Mensagens ===================== */
-#msgInput {
-    width: 100%;
-    max-width: 500px;
-    padding: 10px;
-    border-radius: 8px;
-    border: 2px solid #fff;
-    margin-bottom: 10px;
-    background-color: #222;
-    color: #fff;
-}
-
-#sendBtn {
-    padding: 10px 20px;
-    background-color: #800080;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#sendBtn:hover {
-    background-color: #ff0000;
-}
-
-#messagesContainer .msg {
-    background-color: #111;
-    border: 1px solid #fff;
-    padding: 8px;
-    margin: 5px 0;
-    border-radius: 6px;
-}
-
-/* ===================== Footer ===================== */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #222;
-    margin-top: 20px;
-    font-size: 0.9em;
-}
-
-/* ===================== Responsividade ===================== */
-@media (max-width: 900px) {
-    .galeria .item {
-        flex: 1 1 calc(50% - 20px);
-    }
-}
-
-@media (max-width: 600px) {
-    .galeria .item {
-        flex: 1 1 100%;
-    }
 }
