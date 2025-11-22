@@ -19,14 +19,48 @@
     </header>
 
     <main>
-        <h2>Mural de Carinho</h2>
-        <textarea id="mensagem" rows="4" placeholder="Escreva sua mensagem..."></textarea><br>
-        <button id="enviar">Enviar</button>
+        <div class="quiz-container">
+            <textarea id="mensagem" rows="4" placeholder="Escreva sua mensagem sem palavrões..."></textarea><br><br>
+            <button id="enviar">Enviar</button>
 
-        <h3>Mensagens enviadas:</h3>
-        <div id="mural"></div>
+            <h3>Mensagens enviadas:</h3>
+            <div id="mural"></div>
+        </div>
     </main>
 
-    <script src="js/mensagens.js"></script>
+    <footer>
+        © 2025 João | Todos os direitos reservados
+    </footer>
+
+    <script>
+        // JavaScript interno para simplificar
+        const enviarBtn = document.getElementById('enviar');
+        const mural = document.getElementById('mural');
+
+        enviarBtn.addEventListener('click', () => {
+            const mensagemInput = document.getElementById('mensagem');
+            let texto = mensagemInput.value.trim();
+
+            if (texto === "") {
+                alert("Digite uma mensagem antes de enviar!");
+                return;
+            }
+
+            // Evitar palavrões simples (você pode expandir)
+            const palavroes = ["palavrão1", "palavrão2"];
+            for (let p of palavroes) {
+                if (texto.toLowerCase().includes(p)) {
+                    alert("Palavras ofensivas não são permitidas!");
+                    return;
+                }
+            }
+
+            const novaMensagem = document.createElement('p');
+            novaMensagem.textContent = texto;
+            mural.appendChild(novaMensagem);
+
+            mensagemInput.value = "";
+        });
+    </script>
 </body>
 </html>
