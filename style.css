@@ -1,9 +1,9 @@
-/* Reset */
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Verdana', sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 /* Cores do João */
@@ -12,6 +12,7 @@
     --vermelho: #ff0000;
     --branco: #ffffff;
     --roxo: #800080;
+    --cinza-escuro: #1a1a1a;
 }
 
 /* Corpo */
@@ -20,31 +21,34 @@ body {
     color: var(--branco);
 }
 
-/* Cabeçalho */
+/* Cabeçalho e navegação */
 header {
     background: linear-gradient(90deg, var(--vermelho), var(--roxo));
-    padding: 20px 10px;
+    padding: 20px;
     text-align: center;
+    box-shadow: 0 0 15px var(--vermelho);
 }
 
 header h1 {
-    font-size: 2.5em;
     font-family: 'Impact', sans-serif;
+    font-size: 3em;
     color: var(--branco);
     text-shadow: 2px 2px var(--preto);
 }
 
 nav a {
-    color: var(--branco);
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    color: var(--branco);
     transition: 0.3s;
+    padding: 5px 10px;
 }
 
 nav a:hover {
     color: var(--vermelho);
+    text-shadow: 0 0 10px var(--vermelho);
 }
 
 /* Main */
@@ -52,7 +56,31 @@ main {
     padding: 30px;
 }
 
-/* Grid de imagens */
+/* Cards */
+.card {
+    background: var(--cinza-escuro);
+    border: 2px solid var(--roxo);
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+    transition: 0.3s;
+    overflow: hidden;
+    box-shadow: 0 0 10px var(--roxo);
+}
+
+.card:hover {
+    transform: scale(1.1);
+    border-color: var(--vermelho);
+    box-shadow: 0 0 20px var(--vermelho);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Grid de cards */
 .grid {
     display: grid;
     gap: 20px;
@@ -66,26 +94,6 @@ main {
     grid-template-columns: repeat(6, 1fr);
 }
 
-.grid img {
-    width: 100%;
-    border-radius: 10px;
-    transition: transform 0.3s;
-    border: 3px solid var(--roxo);
-}
-
-.grid img:hover {
-    transform: scale(1.1);
-    border-color: var(--vermelho);
-}
-
-/* Cards */
-.grid div {
-    background-color: #111;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-}
-
 /* Botões */
 button {
     background: var(--roxo);
@@ -97,32 +105,31 @@ button {
     transition: all 0.3s;
     border-radius: 10px;
     font-size: 1.1em;
+    box-shadow: 0 0 5px var(--roxo);
 }
 
 button:hover {
     background: var(--vermelho);
     border-color: var(--branco);
+    box-shadow: 0 0 15px var(--vermelho);
     transform: scale(1.05);
 }
 
-/* Quiz */
-.quiz-container {
-    background-color: #111;
+/* Quiz e mural */
+.quiz-container, .mensagens-container {
+    background-color: var(--cinza-escuro);
     padding: 20px;
     border-radius: 15px;
-    max-width: 600px;
+    max-width: 800px;
     margin: 20px auto;
+    box-shadow: 0 0 15px var(--roxo);
     text-align: center;
 }
 
-.quiz-container h3 {
+.quiz-container h3, .mensagens-container h3 {
     margin-bottom: 20px;
     color: var(--roxo);
     text-shadow: 1px 1px var(--preto);
-}
-
-.quiz-container button {
-    margin-top: 15px;
 }
 
 /* Footer */
@@ -132,4 +139,16 @@ footer {
     background-color: var(--preto);
     color: var(--branco);
     margin-top: 50px;
+    box-shadow: 0 -5px 10px var(--roxo);
+}
+
+/* Textarea */
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--roxo);
+    background-color: var(--cinza-escuro);
+    color: var(--branco);
+    resize: none;
 }
